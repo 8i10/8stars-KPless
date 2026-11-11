@@ -1,348 +1,65 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<link rel="icon" href="favicon.png" type="image/png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>探索者一覧</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="robots" content="noindex,nofollow">
+<title>KPレス プレイヤー</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
 <style>
-  :root { --bg:#0e0e10;--surface:#16161a;--border:#2a2a30;--text:#e8e6e0;--muted:#8a887e;--accent:#c9a96e;--accent-dim:rgba(201,169,110,0.15); }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:var(--bg);color:var(--text);font-family:'Noto Serif JP',serif;min-height:100vh;overflow-x:hidden;}
-  body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(201,169,110,0.06) 0%,transparent 70%);pointer-events:none;z-index:0;}
-
-  header{position:relative;z-index:1;padding:4rem 2rem 2rem;text-align:center;border-bottom:1px solid var(--border);}
-  h1{font-size:clamp(1.2rem,3vw,2rem);font-weight:200;letter-spacing:0.5em;opacity:0;animation:fadeUp 0.8s ease forwards 0.2s;}
-  .header-line{display:flex;align-items:center;gap:1rem;justify-content:center;margin-top:1.5rem;opacity:0;animation:fadeUp 0.8s ease forwards 0.35s;}
-  .header-line::before,.header-line::after{content:'';flex:1;max-width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--accent));}
-  .header-line::after{background:linear-gradient(90deg,var(--accent),transparent);}
-  .header-ornament{color:var(--accent);font-family:'Cormorant Garamond',serif;font-size:1.2rem;}
-
-  /* 検索 */
-  .search-wrap{position:relative;z-index:1;display:flex;justify-content:flex-end;padding:1.5rem 2rem 0;opacity:0;animation:fadeUp 0.8s ease forwards 0.45s;}
-  .search-input{background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.5rem 1rem 0.5rem 2.2rem;font-family:'Noto Serif JP',serif;font-size:0.8rem;width:280px;outline:none;transition:border-color 0.2s;}
-  .search-input:focus{border-color:var(--accent);}
-  .search-icon{position:absolute;right:calc(2rem + 258px);top:50%;transform:translateY(-50%);color:var(--muted);font-size:0.8rem;pointer-events:none;}
-
-  /* フィルター */
-  .controls{position:relative;z-index:1;display:flex;flex-direction:column;gap:0.5rem;align-items:center;padding:1rem 2rem;opacity:0;animation:fadeUp 0.8s ease forwards 0.5s;}
-  .filter-group{display:flex;gap:0.4rem;flex-wrap:wrap;justify-content:center;}
-  .filter-btn{background:transparent;border:1px solid var(--border);color:var(--muted);padding:0.3rem 0.85rem;font-family:'Noto Serif JP',serif;font-size:0.7rem;letter-spacing:0.08em;cursor:pointer;transition:all 0.2s;}
-  .filter-btn:hover,.filter-btn.active{border-color:var(--accent);color:var(--accent);background:var(--accent-dim);}
-
-  /* グリッド */
-  .grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem;padding:1.5rem 2rem 2rem;max-width:1200px;margin:0 auto;}
-
-  /* カード */
-  .card{background:var(--surface);border:1px solid var(--border);cursor:pointer;transition:transform 0.25s ease,border-color 0.25s ease,box-shadow 0.25s ease;opacity:0;animation:fadeUp 0.6s ease forwards;position:relative;overflow:hidden;}
-  .card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 40px rgba(0,0,0,0.4),0 0 0 1px var(--accent-dim);}
-  .card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity 0.25s;}
-  .card:hover::before{opacity:1;}
-  .card-portrait{width:100%;aspect-ratio:1/1;background:#1a1a1f;overflow:hidden;position:relative;}
-  .card-portrait img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;transform-origin:var(--img-ox,50%) var(--img-oy,20%);}
-  .card:hover .card-portrait img{transform:scale(calc(var(--img-scale,1.0) * 1.04));}
-  .card-portrait-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
-  .placeholder-monogram{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;opacity:0.2;}
-  .card-status-badge{position:absolute;top:10px;right:10px;padding:0.2rem 0.6rem;font-size:0.65rem;letter-spacing:0.1em;font-family:'Cormorant Garamond',serif;}
-  .status-生存{background:rgba(100,160,100,0.2);color:#8cc48c;border:1px solid rgba(100,160,100,0.4);}
-  .status-死亡{background:rgba(160,80,80,0.2);color:#c48c8c;border:1px solid rgba(160,80,80,0.4);}
-  .status-不明{background:rgba(160,160,100,0.2);color:#c4c48c;border:1px solid rgba(160,160,100,0.4);}
-  .status-引退{background:rgba(100,100,160,0.2);color:#8c8cc4;border:1px solid rgba(100,100,160,0.4);}
-  .card-body{padding:1rem 1.25rem 1.25rem;}
-  .card-furigana{font-size:0.6rem;color:var(--muted);letter-spacing:0.18em;margin-bottom:0.12rem;}
-  .card-name{font-size:1.05rem;font-weight:300;letter-spacing:0.1em;margin-bottom:0.6rem;}
-  .card-meta{display:flex;gap:0.75rem;font-size:0.7rem;color:var(--muted);padding-bottom:0.6rem;border-bottom:1px solid var(--border);margin-bottom:0.6rem;}
-  .card-quote{font-size:0.65rem;color:var(--muted);line-height:1.6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-
-  /* モーダル */
-  .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:100;display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity 0.2s;backdrop-filter:blur(4px);}
-  .modal-overlay.open{opacity:1;pointer-events:all;}
-  .modal{background:var(--surface);border:1px solid var(--border);max-width:720px;width:100%;max-height:90vh;overflow-y:auto;transform:translateY(16px);transition:transform 0.2s;position:relative;}
-  .modal-overlay.open .modal{transform:translateY(0);}
-  .modal-close{position:absolute;top:1rem;right:1rem;background:none;border:1px solid var(--border);color:var(--muted);width:2rem;height:2rem;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:10;}
-  .modal-close:hover{border-color:var(--accent);color:var(--accent);}
-  .modal-top{display:grid;grid-template-columns:240px 1fr;}
-  @media(max-width:560px){.modal-top{grid-template-columns:1fr;}}
-  .modal-portrait{background:#1a1a1f;aspect-ratio:1/1;overflow:hidden;align-self:start;}
-  .modal-portrait img{width:100%;height:100%;object-fit:cover;transform-origin:var(--img-ox,50%) var(--img-oy,20%);transform:scale(var(--img-scale,1.0));}
-  .modal-portrait-placeholder{width:100%;height:100%;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;}
-  .modal-info{padding:2rem;overflow-y:auto;}
-  .modal-furigana{font-size:0.7rem;color:var(--muted);letter-spacing:0.2em;margin-bottom:0.3rem;}
-  .modal-name{font-size:1.4rem;font-weight:200;letter-spacing:0.1em;margin-bottom:1rem;}
-  .modal-meta-row{display:flex;gap:1.5rem;flex-wrap:wrap;font-size:0.75rem;color:var(--muted);padding:0.75rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:0;}
-  .modal-meta-row span strong{color:var(--text);display:block;font-weight:400;font-size:0.85rem;}
-
-  /* ステータス（右パネル内・メタ情報の直下） */
-  .modal-stats-inline{margin-top:1rem;}
-  .modal-stats-inline .stats-block-label{font-size:0.6rem;color:var(--muted);letter-spacing:0.12em;margin-bottom:0.3rem;margin-top:0.6rem;}
-  .modal-stats-inline .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0.3rem;}
-  .modal-stats-inline .stats-row-3{display:grid;grid-template-columns:repeat(3,1fr);gap:0.3rem;}
-  .stat-item{background:var(--bg);border:1px solid var(--border);padding:0.4rem 0.3rem;text-align:center;}
-  .stat-label{font-size:0.55rem;color:var(--muted);letter-spacing:0.08em;}
-  .stat-val{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--accent);}
-
-  .modal-body{padding:0 2rem 2rem;}
-  .modal-section-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.8rem;color:var(--accent);letter-spacing:0.2em;margin-bottom:0.6rem;margin-top:1.5rem;}
-  .modal-profile{font-size:0.82rem;line-height:2;color:var(--text);opacity:0.9;white-space:pre-wrap;}
-  .modal-quote{border-left:2px solid var(--accent);padding-left:1rem;font-style:italic;font-size:0.82rem;color:var(--muted);line-height:1.8;margin-top:1rem;}
-
-  /* 特徴表 */
-  .traits-table{width:100%;border-collapse:collapse;font-size:0.78rem;margin-top:0.5rem;}
-  .traits-table th{background:rgba(201,169,110,0.08);color:var(--accent);font-weight:400;letter-spacing:0.08em;padding:0.4rem 0.6rem;border:1px solid var(--border);font-size:0.7rem;}
-  .traits-table td{padding:0.4rem 0.6rem;border:1px solid var(--border);color:var(--text);line-height:1.6;vertical-align:top;}
-  .traits-table tr:nth-child(even) td{background:rgba(255,255,255,0.02);}
-
-  /* アコーディオン */
-  .accordion{border:1px solid var(--border);margin-top:1rem;}
-  .accordion-header{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 0.9rem;cursor:pointer;font-size:0.75rem;color:var(--muted);letter-spacing:0.08em;user-select:none;transition:background 0.15s,color 0.15s;}
-  .accordion-header:hover{background:rgba(255,255,255,0.03);color:var(--text);}
-  .accordion-title{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--accent);font-size:0.8rem;letter-spacing:0.15em;}
-  .accordion-count{font-size:0.68rem;color:var(--muted);margin-left:0.5rem;}
-  .accordion-arrow{font-size:0.6rem;transition:transform 0.2s;color:var(--accent);}
-  .accordion.open .accordion-arrow{transform:rotate(180deg);}
-  .accordion-body{display:none;padding:0.75rem 1rem 1rem;border-top:1px solid var(--border);}
-  .accordion.open .accordion-body{display:block;}
-  .session-list{list-style:none;display:flex;flex-direction:column;gap:0.4rem;}
-  .session-list li{font-size:0.78rem;color:var(--muted);padding-left:1em;position:relative;line-height:1.6;}
-  .session-list li::before{content:'—';position:absolute;left:0;color:var(--accent);font-size:0.7rem;}
-
-  footer{position:relative;z-index:1;text-align:center;padding:3rem 2rem;border-top:1px solid var(--border);margin-top:2rem;}
-  .footer-link{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.8rem;color:var(--muted);text-decoration:none;letter-spacing:0.1em;border:1px solid var(--border);padding:0.4rem 1.2rem;transition:all 0.2s;}
-  .footer-link:hover{color:var(--accent);border-color:var(--accent);}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+:root{--bg:#14161c;--card:#1f232c;--tx:#e8e8ec;--sub:#9aa0ad;--ac:#c9a85c}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--tx);font-family:"Hiragino Sans","Yu Gothic",sans-serif}
+main{min-height:100%;display:flex;align-items:center;justify-content:center;padding:24px 16px}
+.box{width:100%;max-width:480px;background:var(--card);border-radius:14px;padding:28px 22px;text-align:center;line-height:1.8}
+h1{font-size:20px;margin:0 0 6px;color:var(--ac)}
+p{margin:0 0 18px;color:var(--sub);font-size:14px}
+label.btn{display:block;padding:16px;border:2px dashed #555b68;border-radius:12px;cursor:pointer;font-size:16px}
+label.btn:hover,.drag label.btn{border-color:var(--ac);color:var(--ac)}
+input{display:none}
+#err{color:#e57373;font-size:14px;margin-top:14px;min-height:1em}
 </style>
 </head>
 <body>
-
-<header>
-  <h1>探索者一覧</h1>
-  <div class="header-line"><span class="header-ornament">✦</span></div>
-</header>
-
-<!-- 検索ボックス -->
-<div class="search-wrap">
-  <span class="search-icon">🔍</span>
-  <input class="search-input" id="searchInput" type="text" placeholder="PC名・ふりがな・通過シナリオで検索…" oninput="renderGrid()">
-</div>
-
-<!-- フィルター -->
-<div class="controls" id="controls"></div>
-
-<div class="grid" id="grid"></div>
-
-<footer>
-  <a href="login.html" class="footer-link">✎ 編集ページへ</a>
-</footer>
-
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal">
-    <button class="modal-close" id="modalClose">✕</button>
-    <div class="modal-top">
-      <div class="modal-portrait" id="modalPortrait"></div>
-      <div class="modal-info">
-        <div class="modal-furigana" id="modalFurigana"></div>
-        <div class="modal-name" id="modalName"></div>
-        <div class="modal-meta-row" id="modalMeta"></div>
-        <!-- ステータス：メタ情報の直下 -->
-        <div class="modal-stats-inline" id="modalStatsInline"></div>
-      </div>
-    </div>
-    <div class="modal-body">
-      <!-- プロフィール -->
-      <div class="modal-section-title">プロフィール</div>
-      <div class="modal-profile" id="modalProfile"></div>
-      <!-- 特徴表 -->
-      <div id="modalTraitsWrap"></div>
-      <!-- 通過シナリオ -->
-      <div id="modalSessionsWrap" style="margin-top:1.5rem"></div>
-    </div>
-  </div>
-</div>
-
+<main><div class="box">
+<h1>KPレス プレイヤー</h1>
+<p>受け取ったKPレス用HTMLファイルを選ぶとプレイが始まります。</p>
+<label class="btn">ファイルを選ぶ<input type="file" id="f" accept=".html,.htm,text/html"></label>
+<div id="err"></div>
+</div></main>
 <script>
-let characters = [];
-let activeFilter = 'all';
-let activeCat = 'all';
-
-function fixDropboxUrl(url) {
-  if (!url) return url;
-  if (url.includes('dropbox.com')) {
-    return url.replace('www.dropbox.com','dl.dropboxusercontent.com')
-              .replace(/[?&]dl=\d/,'').replace(/[?&]raw=\d/,'');
+(function(){
+  var f=document.getElementById("f"),err=document.getElementById("err");
+  function decode(html){
+    var doc=new DOMParser().parseFromString(html,"text/html");
+    var e=doc.getElementById("scn-enc");
+    if(!e)return html;
+    var k=e.getAttribute("data-k")||"",kb=[];
+    for(var i=0;i<k.length;i+=2)kb.push(parseInt(k.substr(i,2),16));
+    var d=atob(e.textContent.replace(/\s/g,"")),u=new Uint8Array(d.length);
+    for(var j=0;j<d.length;j++)u[j]=d.charCodeAt(j)^kb[j%kb.length];
+    return new TextDecoder().decode(u);
   }
-  return url;
-}
-
-async function loadCharacters() {
-  try {
-    const res = await fetch('characters.json?t=' + Date.now());
-    characters = await res.json();
-  } catch { characters = []; }
-  // ふりがなで五十音順ソート（カタカナ→ひらがな正規化）
-  characters.sort((a, b) => {
-    const toHira = s => (s || '').replace(/[\u30A1-\u30F6]/g, c =>
-      String.fromCharCode(c.charCodeAt(0) - 0x60));
-    return toHira(a.furigana).localeCompare(toHira(b.furigana), 'ja');
-  });
-  renderFilters();
-  renderGrid();
-}
-
-const CATEGORY_ORDER = [
-  '無所属(現代日本)','無所属(現代海外)','無所属(時代違いetc)',
-  '施設組','教会組','喫茶店組','考古学研究所組',
-  '凪・薙一族','四季組','四神組',
-  '極道「天神会」','中華マフィア「煌」','中華マフィア「蓮」'
-];
-
-function renderFilters() {
-  const ctrl = document.getElementById('controls');
-  const used = new Set(characters.map(c => c.category).filter(Boolean));
-  // 定義順に並べ、定義外のカテゴリーは末尾に追加
-  const ordered = CATEGORY_ORDER.filter(c => used.has(c));
-  const extra = [...used].filter(c => !CATEGORY_ORDER.includes(c));
-  const cats = ['all', ...ordered, ...extra];
-  const catBtns = cats.map(s =>
-    `<button class="filter-btn ${s===activeCat?'active':''}" onclick="setCat('${s.replace(/'/g,"\\'")}')">
-      ${s==='all'?'すべて':s}</button>`).join('');
-  ctrl.innerHTML = `<div class="filter-group">${catBtns}</div>`;
-}
-
-function setFilter(f) { activeFilter = activeFilter===f?'all':f; renderFilters(); renderGrid(); }
-function setCat(c)    { activeCat = c; renderFilters(); renderGrid(); }
-
-function toHira(s) {
-  return (s || '').replace(/[\u30A1-\u30F6]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
-}
-
-function renderGrid() {
-  const q = (document.getElementById('searchInput')?.value||'').trim().toLowerCase();
-  let filtered = characters;
-  if (activeCat !== 'all') filtered = filtered.filter(c => c.category === activeCat);
-  if (q) filtered = filtered.filter(c =>
-    (c.name||'').toLowerCase().includes(q) ||
-    (c.furigana||'').toLowerCase().includes(q) ||
-    (c.sessions||[]).some(s => s.toLowerCase().includes(q))
-  );
-  // 五十音順ソート（ひらがな・カタカナ混合対応）
-  filtered = [...filtered].sort((a, b) =>
-    toHira(a.furigana).localeCompare(toHira(b.furigana), 'ja')
-  );
-
-  document.getElementById('grid').innerHTML = filtered.map((c, i) => {
-    const cardLine = (c.sessions&&c.sessions[0]) || '';
-    const pos = c.imagePos || '50% 20%';
-    const [ox, oy] = pos.split(' ');
-    const sc = c.imageScale || 1.0;
-    return `
-    <div class="card" style="animation-delay:${i*0.07}s" onclick="openModal('${c.id}')">
-      <div class="card-portrait" style="background:linear-gradient(160deg,${c.color||'#7c9bb5'}22,#1a1a1f)">
-        ${c.image
-          ?`<img src="${fixDropboxUrl(c.image)}" alt="${c.name}" loading="lazy" style="object-position:${pos};--img-ox:${ox};--img-oy:${oy};--img-scale:${sc};transform:scale(${sc});transform-origin:${ox} ${oy}">`
-          :`<div class="card-portrait-placeholder"><span class="placeholder-monogram">${c.name?c.name.charAt(0):'?'}</span></div>`}
-        ${c.status?`<span class="card-status-badge status-${c.status}">${c.status}</span>`:''}
-      </div>
-      <div class="card-body">
-        ${c.furigana?`<div class="card-furigana">${c.furigana}</div>`:''}
-        <div class="card-name">${c.name||'（名前なし）'}</div>
-        <div class="card-meta">
-          ${c.age?`<span>${c.age}歳</span>`:''}
-          ${c.occupation?`<span>${c.occupation}</span>`:''}
-        </div>
-        ${cardLine?`<div class="card-quote">${cardLine}</div>`:''}
-      </div>
-    </div>`;
-  }).join('');
-}
-
-function openModal(id) {
-  const c = characters.find(x => x.id === id);
-  if (!c) return;
-
-  document.getElementById('modalFurigana').textContent = c.furigana || '';
-  document.getElementById('modalName').textContent = c.name || '';
-  document.getElementById('modalProfile').textContent = c.profile || '';
-
-  document.getElementById('modalMeta').innerHTML = `
-    ${c.age?`<span>年齢<strong>${c.age}歳</strong></span>`:''}
-    ${c.occupation?`<span>職業<strong>${c.occupation}</strong></span>`:''}
-    <span>誕生日<strong>${c.birthday||'未設定'}</strong></span>
-    ${c.status?`<span>状態<strong>${c.status}</strong></span>`:''}`;
-
-  const pos = c.imagePos || '50% 20%';
-  const [ox, oy] = pos.split(' ');
-  const sc = c.imageScale || 1.0;
-  document.getElementById('modalPortrait').innerHTML = c.image
-    ? `<img src="${fixDropboxUrl(c.image)}" alt="${c.name}" style="object-position:${pos};transform:scale(${sc});transform-origin:${ox} ${oy}">`
-    : `<div class="modal-portrait-placeholder"><span class="placeholder-monogram" style="font-size:5rem;opacity:0.15">${c.name?c.name.charAt(0):'?'}</span></div>`;
-
-  // ステータス（右パネル内）
-  const statsInline = document.getElementById('modalStatsInline');
-  const primary   = ['STR','CON','POW','DEX','APP','SIZ','INT','EDU'];
-  const hasAny = keys => c.stats && keys.some(k => c.stats[k]!==''&&c.stats[k]!=null);
-  if (c.stats && Object.keys(c.stats).some(k=>c.stats[k]!==''&&c.stats[k]!=null)) {
-    let html='';
-    if (hasAny(primary)) {
-      html+=`<div class="stats-block-label">基本能力値</div><div class="stats-row">`+
-        primary.filter(k=>c.stats[k]!==''&&c.stats[k]!=null).map(k=>
-          `<div class="stat-item"><div class="stat-label">${k}</div><div class="stat-val">${c.stats[k]}</div></div>`
-        ).join('')+`</div>`;
-    }
-    if (c.stats['DB']!==''&&c.stats['DB']!=null)
-      html+=`<div class="stats-row" style="margin-top:0.3rem"><div class="stat-item"><div class="stat-label">DB</div><div class="stat-val" style="font-size:0.9rem">${c.stats['DB']}</div></div></div>`;
-    statsInline.innerHTML = html;
-  } else {
-    statsInline.innerHTML = '';
+  function play(file){
+    if(!file)return;
+    err.textContent="";
+    var r=new FileReader();
+    r.onload=function(){
+      var out;
+      try{out=decode(String(r.result));}catch(x){err.textContent="ファイルを読み込めませんでした。";return;}
+      if(!/<html|<body|<script/i.test(out)){err.textContent="KPレス用HTMLファイルを選んでください。";return;}
+      document.open();document.write(out);document.close();
+    };
+    r.onerror=function(){err.textContent="ファイルを読み込めませんでした。";};
+    r.readAsText(file,"utf-8");
   }
-
-  // 特徴表
-  const traitsWrap = document.getElementById('modalTraitsWrap');
-  if (c.traits && c.traits.length) {
-    traitsWrap.innerHTML = `
-      <div class="modal-section-title">特徴表</div>
-      <table class="traits-table">
-        <thead><tr><th>ダイス</th><th>特徴</th></tr></thead>
-        <tbody>${c.traits.map(t=>`<tr><td>${t.dice||''}</td><td>${t.text||''}</td></tr>`).join('')}</tbody>
-      </table>`;
-  } else {
-    traitsWrap.innerHTML = '';
-  }
-
-  // 通過シナリオ アコーディオン
-  const sessWrap = document.getElementById('modalSessionsWrap');
-  if (c.sessions && c.sessions.length) {
-    sessWrap.innerHTML = `
-      <div class="accordion" id="sessAccordion">
-        <div class="accordion-header" onclick="toggleAccordion()">
-          <span><span class="accordion-title">通過シナリオ</span><span class="accordion-count">${c.sessions.length}件</span></span>
-          <span class="accordion-arrow">▼</span>
-        </div>
-        <div class="accordion-body">
-          <ul class="session-list">${c.sessions.map(s=>`<li>${s}</li>`).join('')}</ul>
-        </div>
-      </div>`;
-  } else {
-    sessWrap.innerHTML = '';
-  }
-
-  document.getElementById('modalOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function toggleAccordion() {
-  document.getElementById('sessAccordion')?.classList.toggle('open');
-}
-function closeModal() {
-  document.getElementById('modalOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.getElementById('modalClose').addEventListener('click', closeModal);
-document.getElementById('modalOverlay').addEventListener('click', function(e){ if(e.target===this) closeModal(); });
-document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
-
-loadCharacters();
+  f.addEventListener("change",function(){play(f.files[0]);});
+  document.addEventListener("dragover",function(e){e.preventDefault();document.body.classList.add("drag");});
+  document.addEventListener("dragleave",function(){document.body.classList.remove("drag");});
+  document.addEventListener("drop",function(e){e.preventDefault();document.body.classList.remove("drag");if(e.dataTransfer.files[0])play(e.dataTransfer.files[0]);});
+})();
 </script>
 </body>
 </html>
